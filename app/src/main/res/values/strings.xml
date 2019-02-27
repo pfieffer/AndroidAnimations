@@ -1,3 +1,5 @@
 <resources>
-    <string name="app_name">AndroidAnimations</string>
+    <string name="app_name">Drawable Animation</string>
+    <string name="start">Start</string>
+    <string name="stop">Stop</string>
 </resources>
