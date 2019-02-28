@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.android.java.MainActivity">
+    tools:context="com.example.androidanimations.MainActivity">
 
     <ImageView
         android:id="@+id/image"
