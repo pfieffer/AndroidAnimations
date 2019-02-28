@@ -7,3 +7,5 @@
 2. Pull all the branches: Run `git pull`
 3. Switch between branches to view the respective code: `git checkout BRANCH_NAME`
 4. Build and Run on an emulator or device.
+
+>Jumping betweeen branches can be troublesome for the IDE so make sure you clean project and/or uninstall the application before running.
