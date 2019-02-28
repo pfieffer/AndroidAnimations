@@ -8,6 +8,9 @@ import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 
+import com.example.androidanimations.transformers.DepthPageTransformer;
+import com.example.androidanimations.transformers.ZoomPageTransformer;
+
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
@@ -23,6 +26,8 @@ public class MainActivity extends AppCompatActivity {
 
         // Instantiate a ViewPager and a PagerAdapter.
         mPager = (ViewPager) findViewById(R.id.pager);
+        //mPager.setPageTransformer(true, new DepthPageTransformer());
+        mPager.setPageTransformer(true, new ZoomPageTransformer());
         PagerAdapter mPagerAdapter = new ViewPagerAdapter(getSupportFragmentManager());
 
         mPager.setAdapter(mPagerAdapter);
