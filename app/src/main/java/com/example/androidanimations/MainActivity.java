@@ -5,11 +5,16 @@ import android.animation.ObjectAnimator;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.view.animation.AnticipateOvershootInterpolator;
+import android.view.animation.BounceInterpolator;
+import android.view.animation.LinearInterpolator;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 
 public class MainActivity extends AppCompatActivity {
 
     private ImageView imageView;
+    private RelativeLayout canvas;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -17,23 +22,20 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         imageView =  findViewById(R.id.faceIcon);
+        canvas = findViewById(R.id.animationCanvas);
     }
 
     public void onButtonClick(View v) {
-        ObjectAnimator animatorX = ObjectAnimator.ofFloat(imageView, "scaleX", 1f, 2f)
+        int screenHeight = canvas.getHeight();
+        int targetY = screenHeight - imageView.getHeight();
+
+        ObjectAnimator animator = ObjectAnimator.ofFloat(
+                imageView, "y", 0, targetY)
                 .setDuration(1000);
 
-        ObjectAnimator animatorY = ObjectAnimator.ofFloat(imageView, "scaleY", 1f, 2f)
-                .setDuration(1000);
+        animator.setInterpolator(new BounceInterpolator()); //AnticipateOvershootInterpolator, LinearInterpolator
 
-        AnimatorSet animatorSet = new AnimatorSet();
-//        animatorSet.playTogether(animatorX, animatorY); //pass in animator objects separated by comma or a list of animator objects
-
-        animatorSet.playSequentially(animatorX, animatorY);
-
-        animatorSet.setDuration(2500);
-
-        animatorSet.start();
+        animator.start();
     }
 
 }
